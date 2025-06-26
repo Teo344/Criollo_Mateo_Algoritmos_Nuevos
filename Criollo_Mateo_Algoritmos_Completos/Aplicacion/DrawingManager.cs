@@ -130,7 +130,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
                     float pixelY = pixel.Position.Y;
 
                     g.FillRectangle(new SolidBrush(pixel.Color), pixelX, pixelY, 3, 3);
-                    await Task.Delay(20);
+                    await Task.Delay(10);
                 }
             }
 
@@ -151,6 +151,12 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
             }
 
             picCanvas.Image = _buffer;
+        }
+
+        public PolygonFigure devolverPolygono(Point2D center, float radius, int sides)
+        {
+            var polygon = _polygonGenerator.GenerateRegularPolygon(center, radius, sides);
+            return polygon;
         }
 
 
@@ -215,14 +221,6 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
                 }
             }
         }
-
-
-
-
-
-
-
-
 
         public void ClearAll(PictureBox canvas)
         {

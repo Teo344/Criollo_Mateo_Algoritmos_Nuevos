@@ -71,7 +71,7 @@
             this.btnScaline.Name = "btnScaline";
             this.btnScaline.Size = new System.Drawing.Size(144, 56);
             this.btnScaline.TabIndex = 2;
-            this.btnScaline.Text = "Scaline";
+            this.btnScaline.Text = "SkilineFill";
             this.btnScaline.UseVisualStyleBackColor = true;
             this.btnScaline.Click += new System.EventHandler(this.btnScaline_Click);
             // 

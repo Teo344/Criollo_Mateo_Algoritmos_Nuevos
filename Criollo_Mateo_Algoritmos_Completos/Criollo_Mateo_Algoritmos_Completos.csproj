@@ -52,7 +52,7 @@
     <Compile Include="Dominio\Algoritmos\DDALine.cs" />
     <Compile Include="Dominio\Algoritmos\FloodFill.cs" />
     <Compile Include="Dominio\Algoritmos\Recortador.cs" />
-    <Compile Include="Dominio\Algoritmos\ScanlineFill.cs" />
+    <Compile Include="Dominio\Algoritmos\SkilineFill.cs" />
     <Compile Include="Dominio\Cuadrado.cs" />
     <Compile Include="Dominio\Interfaces\ICircleAlgorithm.cs" />
     <Compile Include="Dominio\Interfaces\IFillAlgorithm.cs" />

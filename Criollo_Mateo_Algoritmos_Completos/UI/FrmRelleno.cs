@@ -20,6 +20,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         IFillAlgorithm fillAlgorithm;
         private Point2D? fillStartPoint;
 
+        PolygonFigure polygonFigure = null;
 
 
 
@@ -46,7 +47,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             int sides = int.Parse(txtLade.Text);
 
 
-            drawingManager.DrawPolygon(center, 70, sides, picCanvas);
+            drawingManager.DrawPolygon(center, 40, sides, picCanvas);
+            polygonFigure = drawingManager.devolverPolygono(center, 40, sides);
             btnDibujar.Enabled = false;
             btnFill.Enabled = true;
             btnScaline.Enabled = true;
@@ -116,10 +118,10 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
 
         private void btnScaline_Click(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Algoritmo Scaline";
+            lblTitulo.Text = "Algoritmo SkilineFill";
             lblDescripcion.Text = "Haga click en el punto a rellenar";
             activarBoton(btnScaline);
-            fillAlgorithm = new ScanlineFill();
+            fillAlgorithm = new SkilineFill(polygonFigure.vertices);
         }
 
         private async void btnPintar_Click(object sender, EventArgs e)
@@ -132,13 +134,6 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             await drawingManager.DrawFloodFill(buffer, fillStartPoint.Value, targetColor, fillColor, picCanvas, 2);
 
         }
-
-
-
-
-
-
-
 
         private void picCanvas_Click(object sender, EventArgs e)
         {
