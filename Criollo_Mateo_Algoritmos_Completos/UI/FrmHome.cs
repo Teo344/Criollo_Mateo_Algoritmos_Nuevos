@@ -49,5 +49,16 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
 
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (FrmCurvas frm = new FrmCurvas())
+            {
+                frm.ShowDialog();
+            }
+
+            this.Close();
+        }
     }
 }

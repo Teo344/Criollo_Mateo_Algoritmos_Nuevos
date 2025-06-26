@@ -174,7 +174,6 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             contador = 0;
             btnLinea.Enabled = true;
             btnPoligono.Enabled = true;
-            btnCompletar.Enabled = false;
             btnRecorte.Enabled = true;
             picCanvas.Enabled = true;
         }

@@ -17,7 +17,7 @@ namespace Criollo_Mateo_Algoritmos_Completos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmRecortar());
+            Application.Run(new FrmHome());
         }
     }
 }

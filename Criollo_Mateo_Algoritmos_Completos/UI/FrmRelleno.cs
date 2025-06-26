@@ -37,10 +37,17 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             btnFill.Enabled = false;
             btnScaline.Enabled = false;
             btnPintar.Enabled = false;
+            picCanvas.Enabled = false;
         }
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtLade.Text))
+            {
+                MessageBox.Show("Ingrese el número de lados del polígono.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             float centerx = picCanvas.Width / 2f;
             float centery = picCanvas.Height / 2f;
             Point2D center = new Point2D(centerx, centery);
@@ -95,6 +102,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             lblDescripcion.Text = "Haga click en el punto a rellenar";
             fillAlgorithm = new FloodFill();
             activarBoton(btnFill);
+            picCanvas.Enabled = true;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -107,10 +115,12 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             lblTitulo.Text = "Algoritmo No seleccionado";
             lblDescripcion.Text = "Crear la figura";
             fillStartPoint = null;
+            picCanvas.Enabled = false;
         }
 
         private void picCanvas_MouseClick(object sender, MouseEventArgs e)
         {
+
             fillStartPoint = new Point2D(e.X, e.Y);
             lblDescripcion.Text = "El punto fue x= "+e.X + " y= " +e.Y;
             btnPintar.Enabled = true;
@@ -123,6 +133,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             activarBoton(btnScaline);
             fillAlgorithm = new SkilineFill(polygonFigure.vertices);
             btnPintar.Enabled = true;
+            picCanvas.Enabled = false;
             fillStartPoint = new Point2D(0,0);
         }
 
@@ -132,6 +143,9 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             Color targetColor = buffer.GetPixel((int)fillStartPoint.Value.X, (int)fillStartPoint.Value.Y);
             Color fillColor = Color.Blue;
             drawingManager = new DrawingManager(fillAlgorithm, picCanvas);
+            btnFill.Enabled = false;
+            btnScaline.Enabled = false;
+            btnPintar.Enabled = false;
 
             await drawingManager.DrawFloodFill(buffer, fillStartPoint.Value, targetColor, fillColor, picCanvas, 2);
 
