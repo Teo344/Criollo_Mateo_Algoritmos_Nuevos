@@ -47,14 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacion\DrawingManager.cs" />
+    <Compile Include="Dominio\Algoritmos\BezierCuadratica.cs" />
+    <Compile Include="Dominio\Algoritmos\BezierCubica.cs" />
+    <Compile Include="Dominio\Algoritmos\BezierLineal.cs" />
     <Compile Include="Dominio\Algoritmos\BresenhamCircle.cs" />
     <Compile Include="Dominio\Algoritmos\BresenhamLine.cs" />
     <Compile Include="Dominio\Algoritmos\DDALine.cs" />
     <Compile Include="Dominio\Algoritmos\FloodFill.cs" />
     <Compile Include="Dominio\Algoritmos\Recortador.cs" />
     <Compile Include="Dominio\Algoritmos\SkilineFill.cs" />
+    <Compile Include="Dominio\Algoritmos\Spline.cs" />
     <Compile Include="Dominio\Cuadrado.cs" />
     <Compile Include="Dominio\Interfaces\ICircleAlgorithm.cs" />
+    <Compile Include="Dominio\Interfaces\IFiguraCurva.cs" />
     <Compile Include="Dominio\Interfaces\IFillAlgorithm.cs" />
     <Compile Include="Dominio\Interfaces\ILineAlgorithm.cs" />
     <Compile Include="Dominio\Interfaces\IRecortador.cs" />
@@ -64,6 +69,12 @@
     <Compile Include="Entidades\PolygonFigure.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FrmCurvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmCurvas.Designer.cs">
+      <DependentUpon>FrmCurvas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>

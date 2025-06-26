@@ -19,6 +19,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
         private readonly ICircleAlgorithm _circleAlgorithm;
         private readonly IFillAlgorithm _fillAlgorithm;
         private readonly PolygonGenerator _polygonGenerator;
+        private readonly IRecortador _recortador;
+        private readonly IFiguraCurva _figuraCurva;
 
         private Bitmap _buffer;
 
@@ -42,7 +44,15 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
             _buffer = new Bitmap(canvas.Width, canvas.Height); // Usa el tamaño real del canvas
         }
 
+        public DrawingManager(IRecortador recortador)
+        {
+            _recortador = recortador;
+        }
 
+        public DrawingManager(IFiguraCurva figuraCurva)
+        {
+            _figuraCurva = figuraCurva; 
+        }
 
         public void drawPaint(Point2D punto, Color color, PictureBox canvas, int size)
         {
@@ -232,6 +242,14 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
             Bitmap blank = new Bitmap(canvas.Width, canvas.Height);
             canvas.Image = blank;
 
+        }
+
+        public void DibujarCurva(Graphics g, List<PointF> curva, Pen lapiz)
+        {
+            for (int i = 0; i < curva.Count - 1; i++)
+            {
+                g.DrawLine(lapiz, curva[i], curva[i + 1]);
+            }
         }
 
 

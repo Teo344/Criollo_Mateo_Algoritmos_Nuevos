@@ -28,88 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picCanvas = new System.Windows.Forms.PictureBox();
+            this.btnLinea = new System.Windows.Forms.Button();
+            this.btnPoligono = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.btnRecorte = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnRegresar = new System.Windows.Forms.Button();
+            this.btnCompletar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // picCanvas
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.pictureBox1.Location = new System.Drawing.Point(257, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(384, 269);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picCanvas.BackColor = System.Drawing.SystemColors.Info;
+            this.picCanvas.Location = new System.Drawing.Point(257, 12);
+            this.picCanvas.Name = "picCanvas";
+            this.picCanvas.Size = new System.Drawing.Size(384, 269);
+            this.picCanvas.TabIndex = 0;
+            this.picCanvas.TabStop = false;
+            this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.picCanvas_Paint);
+            this.picCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseClick);
             // 
-            // button1
+            // btnLinea
             // 
-            this.button1.Location = new System.Drawing.Point(74, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLinea.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLinea.Location = new System.Drawing.Point(47, 118);
+            this.btnLinea.Name = "btnLinea";
+            this.btnLinea.Size = new System.Drawing.Size(144, 56);
+            this.btnLinea.TabIndex = 1;
+            this.btnLinea.Text = "Lineas";
+            this.btnLinea.UseVisualStyleBackColor = true;
+            this.btnLinea.Click += new System.EventHandler(this.btnLinea_Click);
             // 
-            // button2
+            // btnPoligono
             // 
-            this.button2.Location = new System.Drawing.Point(708, 118);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPoligono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPoligono.Location = new System.Drawing.Point(703, 118);
+            this.btnPoligono.Name = "btnPoligono";
+            this.btnPoligono.Size = new System.Drawing.Size(144, 56);
+            this.btnPoligono.TabIndex = 2;
+            this.btnPoligono.Text = "Polígonos";
+            this.btnPoligono.UseVisualStyleBackColor = true;
+            this.btnPoligono.Click += new System.EventHandler(this.btnPoligono_Click);
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(410, 296);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(318, 284);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(70, 25);
+            this.lblTitulo.TabIndex = 3;
+            this.lblTitulo.Text = "label1";
             // 
-            // label2
+            // lblDescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(640, 337);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lblDescripcion.Location = new System.Drawing.Point(531, 326);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(53, 20);
+            this.lblDescripcion.TabIndex = 4;
+            this.lblDescripcion.Text = "label2";
             // 
-            // button3
+            // btnRecorte
             // 
-            this.button3.Location = new System.Drawing.Point(69, 350);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRecorte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRecorte.Location = new System.Drawing.Point(36, 326);
+            this.btnRecorte.Name = "btnRecorte";
+            this.btnRecorte.Size = new System.Drawing.Size(144, 56);
+            this.btnRecorte.TabIndex = 5;
+            this.btnRecorte.Text = "Recortar";
+            this.btnRecorte.UseVisualStyleBackColor = true;
+            this.btnRecorte.Click += new System.EventHandler(this.btnRecorte_Click);
             // 
-            // button4
+            // btnLimpiar
             // 
-            this.button4.Location = new System.Drawing.Point(166, 351);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiar.Location = new System.Drawing.Point(186, 326);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(144, 56);
+            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // button5
+            // btnRegresar
             // 
-            this.button5.Location = new System.Drawing.Point(276, 354);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRegresar.Location = new System.Drawing.Point(336, 326);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(144, 56);
+            this.btnRegresar.TabIndex = 7;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // btnCompletar
+            // 
+            this.btnCompletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCompletar.Location = new System.Drawing.Point(703, 189);
+            this.btnCompletar.Name = "btnCompletar";
+            this.btnCompletar.Size = new System.Drawing.Size(144, 56);
+            this.btnCompletar.TabIndex = 8;
+            this.btnCompletar.Text = "Completar";
+            this.btnCompletar.UseVisualStyleBackColor = true;
+            this.btnCompletar.Click += new System.EventHandler(this.btnCompletar_Click);
             // 
             // FrmRecortar
             // 
@@ -117,19 +143,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(882, 413);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnCompletar);
+            this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.btnRecorte);
+            this.Controls.Add(this.lblDescripcion);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.btnPoligono);
+            this.Controls.Add(this.btnLinea);
+            this.Controls.Add(this.picCanvas);
             this.Name = "FrmRecortar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRecortar";
             this.Load += new System.EventHandler(this.FrmRecortar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,13 +164,14 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox picCanvas;
+        private System.Windows.Forms.Button btnLinea;
+        private System.Windows.Forms.Button btnPoligono;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Button btnRecorte;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Button btnCompletar;
     }
 }

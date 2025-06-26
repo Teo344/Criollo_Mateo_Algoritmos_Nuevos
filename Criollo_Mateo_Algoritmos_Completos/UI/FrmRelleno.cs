@@ -119,9 +119,11 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         private void btnScaline_Click(object sender, EventArgs e)
         {
             lblTitulo.Text = "Algoritmo SkilineFill";
-            lblDescripcion.Text = "Haga click en el punto a rellenar";
+            lblDescripcion.Text = "Listo Para pintar";
             activarBoton(btnScaline);
             fillAlgorithm = new SkilineFill(polygonFigure.vertices);
+            btnPintar.Enabled = true;
+            fillStartPoint = new Point2D(0,0);
         }
 
         private async void btnPintar_Click(object sender, EventArgs e)
@@ -140,6 +142,15 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             // No utilizar
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (FrmHome frm = new FrmHome())
+            {
+                frm.ShowDialog();
+            }
 
+            this.Close();
+        }
     }
 }

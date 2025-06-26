@@ -126,6 +126,7 @@
             this.btnRegresar.TabIndex = 8;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // lblTitulo
             // 
@@ -178,6 +179,7 @@
             this.Controls.Add(this.btnFill);
             this.Controls.Add(this.picCanvas);
             this.Name = "FrmRelleno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRelleno";
             this.Load += new System.EventHandler(this.FrmRelleno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
