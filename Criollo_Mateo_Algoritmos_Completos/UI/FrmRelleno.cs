@@ -1,0 +1,150 @@
+﻿using Criollo_Mateo_Algoritmos_Completos.Aplicacion;
+using Criollo_Mateo_Algoritmos_Completos.Dominio.Algoritmos;
+using Criollo_Mateo_Algoritmos_Completos.Dominio.Interfaces;
+using Criollo_Mateo_Algoritmos_Completos.Entidades;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Criollo_Mateo_Algoritmos_Completos.UI
+{
+    public partial class FrmRelleno : Form
+    {
+        DrawingManager drawingManager;
+        IFillAlgorithm fillAlgorithm;
+        private Point2D? fillStartPoint;
+
+
+
+
+        public FrmRelleno()
+        {
+            InitializeComponent();
+        }
+        private void FrmRelleno_Load(object sender, EventArgs e)
+        {
+            fillAlgorithm = new FloodFill();
+            drawingManager = new DrawingManager(fillAlgorithm, picCanvas);
+            lblTitulo.Text = "Algoritmo No seleccionado";
+            lblDescripcion.Text = "Crear la figura";
+            btnFill.Enabled = false;
+            btnScaline.Enabled = false;
+            btnPintar.Enabled = false;
+        }
+
+        private void btnDibujar_Click(object sender, EventArgs e)
+        {
+            float centerx = picCanvas.Width / 2f;
+            float centery = picCanvas.Height / 2f;
+            Point2D center = new Point2D(centerx, centery);
+            int sides = int.Parse(txtLade.Text);
+
+
+            drawingManager.DrawPolygon(center, 70, sides, picCanvas);
+            btnDibujar.Enabled = false;
+            btnFill.Enabled = true;
+            btnScaline.Enabled = true;
+            lblDescripcion.Text = "Seleccione un algoritmo";
+
+        }
+
+        private void activarBoton(Button botonActivo)
+        {
+            List<Button> botones = new List<Button> { btnFill, btnScaline };
+
+            foreach (var boton in botones)
+            {
+                if (boton == botonActivo)
+                {
+                    boton.BackColor = Color.RoyalBlue;
+                    boton.ForeColor = Color.White;
+                }
+                else
+                {
+                    boton.BackColor = SystemColors.Control;
+                    boton.ForeColor = SystemColors.ControlText;
+                }
+            }
+        }
+
+        private void reiniciarBoton()
+        {
+            List<Button> botones = new List<Button> { btnFill, btnScaline };
+
+            foreach (var boton in botones)
+            {
+                boton.Enabled = false;
+                boton.BackColor = SystemColors.Control;
+                boton.ForeColor = SystemColors.ControlText;
+             
+            }
+        }
+
+
+        private void btnFill_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Algoritmo Flood Fill";
+            lblDescripcion.Text = "Haga click en el punto a rellenar";
+            fillAlgorithm = new FloodFill();
+            activarBoton(btnFill);
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            drawingManager.ClearAll(picCanvas);
+            reiniciarBoton();
+            btnPintar.Enabled = false;
+            btnDibujar.Enabled = true;
+            btnFill.Enabled = false;
+            lblTitulo.Text = "Algoritmo No seleccionado";
+            lblDescripcion.Text = "Crear la figura";
+            fillStartPoint = null;
+        }
+
+        private void picCanvas_MouseClick(object sender, MouseEventArgs e)
+        {
+            fillStartPoint = new Point2D(e.X, e.Y);
+            lblDescripcion.Text = "El punto fue x= "+e.X + " y= " +e.Y;
+            btnPintar.Enabled = true;
+        }
+
+        private void btnScaline_Click(object sender, EventArgs e)
+        {
+            lblTitulo.Text = "Algoritmo Scaline";
+            lblDescripcion.Text = "Haga click en el punto a rellenar";
+            activarBoton(btnScaline);
+            fillAlgorithm = new ScanlineFill();
+        }
+
+        private async void btnPintar_Click(object sender, EventArgs e)
+        {
+            Bitmap buffer = drawingManager.GetBuffer();
+            Color targetColor = buffer.GetPixel((int)fillStartPoint.Value.X, (int)fillStartPoint.Value.Y);
+            Color fillColor = Color.Blue;
+            drawingManager = new DrawingManager(fillAlgorithm, picCanvas);
+
+            await drawingManager.DrawFloodFill(buffer, fillStartPoint.Value, targetColor, fillColor, picCanvas, 2);
+
+        }
+
+
+
+
+
+
+
+
+        private void picCanvas_Click(object sender, EventArgs e)
+        {
+            // No utilizar
+        }
+
+
+    }
+}

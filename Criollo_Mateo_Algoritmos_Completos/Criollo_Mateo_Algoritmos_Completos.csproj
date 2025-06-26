@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EC1367B-A9D1-4CA7-88B9-948D04ED2ECA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Criollo_Mateo_Algoritmos_Completos</RootNamespace>
+    <AssemblyName>Criollo_Mateo_Algoritmos_Completos</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aplicacion\DrawingManager.cs" />
+    <Compile Include="Dominio\Algoritmos\BresenhamCircle.cs" />
+    <Compile Include="Dominio\Algoritmos\BresenhamLine.cs" />
+    <Compile Include="Dominio\Algoritmos\DDALine.cs" />
+    <Compile Include="Dominio\Algoritmos\FloodFill.cs" />
+    <Compile Include="Dominio\Algoritmos\Recortador.cs" />
+    <Compile Include="Dominio\Algoritmos\ScanlineFill.cs" />
+    <Compile Include="Dominio\Cuadrado.cs" />
+    <Compile Include="Dominio\Interfaces\ICircleAlgorithm.cs" />
+    <Compile Include="Dominio\Interfaces\IFillAlgorithm.cs" />
+    <Compile Include="Dominio\Interfaces\ILineAlgorithm.cs" />
+    <Compile Include="Dominio\Interfaces\IRecortador.cs" />
+    <Compile Include="Dominio\PolygonGenerator.cs" />
+    <Compile Include="Entidades\Pixel.cs" />
+    <Compile Include="Entidades\Point2D.cs" />
+    <Compile Include="Entidades\PolygonFigure.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmLinea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmLinea.Designer.cs">
+      <DependentUpon>FrmLinea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmRecortar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmRecortar.Designer.cs">
+      <DependentUpon>FrmRecortar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmRelleno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmRelleno.Designer.cs">
+      <DependentUpon>FrmRelleno.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmLinea.resx">
+      <DependentUpon>FrmLinea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmRecortar.resx">
+      <DependentUpon>FrmRecortar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmRelleno.resx">
+      <DependentUpon>FrmRelleno.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PaginaFondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fe45d911aebd5855d8f7b5fb05f83680.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iswNuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iswNuevo1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Logo_ESPE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lineas.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
