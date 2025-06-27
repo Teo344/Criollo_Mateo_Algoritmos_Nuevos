@@ -36,7 +36,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnDibujar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +116,7 @@
             // 
             this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiar.Location = new System.Drawing.Point(238, 328);
+            this.btnLimpiar.Location = new System.Drawing.Point(190, 328);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(144, 56);
             this.btnLimpiar.TabIndex = 7;
@@ -128,7 +128,7 @@
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnRegresar.Location = new System.Drawing.Point(409, 328);
+            this.btnRegresar.Location = new System.Drawing.Point(361, 328);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(144, 56);
             this.btnRegresar.TabIndex = 8;
@@ -136,22 +136,23 @@
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // label2
+            // lblDescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(616, 328);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDescripcion.Location = new System.Drawing.Point(528, 328);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(53, 20);
+            this.lblDescripcion.TabIndex = 9;
+            this.lblDescripcion.Text = "label2";
             // 
             // btnDibujar
             // 
             this.btnDibujar.BackColor = System.Drawing.SystemColors.Control;
             this.btnDibujar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDibujar.Location = new System.Drawing.Point(72, 328);
+            this.btnDibujar.Location = new System.Drawing.Point(24, 328);
             this.btnDibujar.Name = "btnDibujar";
             this.btnDibujar.Size = new System.Drawing.Size(144, 56);
             this.btnDibujar.TabIndex = 10;
@@ -166,7 +167,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(882, 413);
             this.Controls.Add(this.btnDibujar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lblTitulo);
@@ -195,7 +196,7 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnDibujar;
     }
 }

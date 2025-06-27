@@ -79,7 +79,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(179, 22);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Fecha: 16-06-2025";
+            this.label5.Text = "Fecha: 02-07-2025";
             // 
             // label4
             // 
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Criollo_Mateo_Algoritmos_Completos.Properties.Resources.PaginaFondo;
+            this.BackgroundImage = global::Criollo_Mateo_Algoritmos_Completos.Properties.Resources.pexels_scottwebb_3255761;
             this.ClientSize = new System.Drawing.Size(882, 413);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

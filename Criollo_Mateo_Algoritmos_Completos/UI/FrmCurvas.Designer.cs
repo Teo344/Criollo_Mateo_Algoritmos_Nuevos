@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picCanvas = new System.Windows.Forms.PictureBox();
             this.btnLineal = new System.Windows.Forms.Button();
             this.btnCuadratica = new System.Windows.Forms.Button();
             this.btnCubica = new System.Windows.Forms.Button();
@@ -38,22 +37,9 @@
             this.btnRegresar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
+            this.picCanvas = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picCanvas
-            // 
-            this.picCanvas.BackColor = System.Drawing.SystemColors.Info;
-            this.picCanvas.Location = new System.Drawing.Point(189, 12);
-            this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(400, 287);
-            this.picCanvas.TabIndex = 0;
-            this.picCanvas.TabStop = false;
-            this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.picCanvas_Paint);
-            this.picCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseClick);
-            this.picCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseDown);
-            this.picCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseMove);
-            this.picCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseUp);
             // 
             // btnLineal
             // 
@@ -80,7 +66,7 @@
             // btnCubica
             // 
             this.btnCubica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCubica.Location = new System.Drawing.Point(632, 58);
+            this.btnCubica.Location = new System.Drawing.Point(682, 23);
             this.btnCubica.Name = "btnCubica";
             this.btnCubica.Size = new System.Drawing.Size(144, 56);
             this.btnCubica.TabIndex = 3;
@@ -91,7 +77,7 @@
             // btnSpline
             // 
             this.btnSpline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSpline.Location = new System.Drawing.Point(632, 202);
+            this.btnSpline.Location = new System.Drawing.Point(682, 202);
             this.btnSpline.Name = "btnSpline";
             this.btnSpline.Size = new System.Drawing.Size(144, 56);
             this.btnSpline.TabIndex = 4;
@@ -102,7 +88,7 @@
             // btnDibujar
             // 
             this.btnDibujar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDibujar.Location = new System.Drawing.Point(12, 362);
+            this.btnDibujar.Location = new System.Drawing.Point(12, 337);
             this.btnDibujar.Name = "btnDibujar";
             this.btnDibujar.Size = new System.Drawing.Size(144, 56);
             this.btnDibujar.TabIndex = 5;
@@ -113,7 +99,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiar.Location = new System.Drawing.Point(175, 362);
+            this.btnLimpiar.Location = new System.Drawing.Point(175, 337);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(144, 56);
             this.btnLimpiar.TabIndex = 6;
@@ -123,20 +109,22 @@
             // 
             // btnRegresar
             // 
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnRegresar.Location = new System.Drawing.Point(335, 362);
+            this.btnRegresar.Location = new System.Drawing.Point(335, 337);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(144, 56);
             this.btnRegresar.TabIndex = 7;
             this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(264, 312);
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTitulo.Location = new System.Drawing.Point(376, 302);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(70, 25);
             this.lblTitulo.TabIndex = 8;
@@ -146,19 +134,34 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(522, 335);
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDescripcion.Location = new System.Drawing.Point(530, 337);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(52, 18);
+            this.lblDescripcion.Size = new System.Drawing.Size(50, 16);
             this.lblDescripcion.TabIndex = 12;
             this.lblDescripcion.Text = "label2";
+            // 
+            // picCanvas
+            // 
+            this.picCanvas.BackColor = System.Drawing.SystemColors.Info;
+            this.picCanvas.Location = new System.Drawing.Point(190, 12);
+            this.picCanvas.Name = "picCanvas";
+            this.picCanvas.Size = new System.Drawing.Size(468, 287);
+            this.picCanvas.TabIndex = 0;
+            this.picCanvas.TabStop = false;
+            this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.picCanvas_Paint);
+            this.picCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseClick);
+            this.picCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseDown);
+            this.picCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseMove);
+            this.picCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picCanvas_MouseUp);
             // 
             // FrmCurvas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 413);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnRegresar);

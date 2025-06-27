@@ -119,5 +119,15 @@ namespace Criollo_Mateo_Algoritmos_Completos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pexels_scottwebb_3255761 {
+            get {
+                object obj = ResourceManager.GetObject("pexels-scottwebb-3255761", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

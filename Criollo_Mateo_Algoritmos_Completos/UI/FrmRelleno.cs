@@ -48,10 +48,19 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
                 return;
             }
 
+
+
+
             float centerx = picCanvas.Width / 2f;
             float centery = picCanvas.Height / 2f;
             Point2D center = new Point2D(centerx, centery);
             int sides = int.Parse(txtLade.Text);
+
+            if (!int.TryParse(txtLade.Text, out sides) || sides < 3)
+            {
+                MessageBox.Show("El número de lados debe ser un entero mayor o igual a 3.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
 
             drawingManager.DrawPolygon(center, 40, sides, picCanvas);

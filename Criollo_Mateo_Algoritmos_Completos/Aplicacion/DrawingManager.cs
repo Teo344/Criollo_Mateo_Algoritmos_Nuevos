@@ -21,6 +21,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
         private readonly PolygonGenerator _polygonGenerator;
         private readonly IRecortador _recortador;
         private readonly IFiguraCurva _figuraCurva;
+        private readonly IEllipseAlgorithm _ellipseAlgorithm;
+
 
         private Bitmap _buffer;
 
@@ -41,7 +43,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
         {
             _polygonGenerator = new PolygonGenerator();
             _fillAlgorithm = fillAlgorithm;
-            _buffer = new Bitmap(canvas.Width, canvas.Height); // Usa el tamaño real del canvas
+            _buffer = new Bitmap(canvas.Width, canvas.Height); 
         }
 
         public DrawingManager(IRecortador recortador)
@@ -53,6 +55,12 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
         {
             _figuraCurva = figuraCurva; 
         }
+
+        public DrawingManager(IEllipseAlgorithm ellipseAlgorithm)
+        {
+            _ellipseAlgorithm = ellipseAlgorithm;
+        }
+
 
         public void drawPaint(Point2D punto, Color color, PictureBox canvas, int size)
         {
@@ -74,8 +82,6 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
                 {
                     g.FillEllipse(brush, x, y, size, size);
                 }   
- 
-                
                     using (Pen pen = new Pen(Color.Black, 1))
                     {
                         g.DrawEllipse(pen, x, y, size, size);
@@ -90,24 +96,17 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
 
         public async Task DrawPixelsAsync(Point2D start, Point2D end, PictureBox canvas)
         {
-
             var pixels = _lineAlgorithm.DrawLine(start, end, Color.Blue);
 
             using (Graphics g = canvas.CreateGraphics())
             {
-
                 for (int i = 0; i < pixels.Count; i++)
                 {
                     var pixel = pixels[i];
-
-
                     float pixelX = (pixel.Position.X);
                     float pixelY = (pixel.Position.Y);
-
-
-                    // Dibuja el pixel
                     g.FillRectangle(new SolidBrush(pixel.Color), pixelX, pixelY, 3, 3);
-                    await Task.Delay(20);
+                    await Task.Delay(5);
                 }
             }
         }
@@ -140,11 +139,31 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
                     float pixelY = pixel.Position.Y;
 
                     g.FillRectangle(new SolidBrush(pixel.Color), pixelX, pixelY, 3, 3);
-                    await Task.Delay(10);
+                    await Task.Delay(5);
                 }
             }
 
         }
+
+        public async Task DrawPixelsAsyncEllipse(Point2D center, Point2D borde, PictureBox canvas)
+        {
+            float rx = Math.Abs(borde.X - center.X);
+            float ry = Math.Abs(borde.Y - center.Y);
+
+            var pixels = _ellipseAlgorithm.DrawEllipse(center, rx, ry, Color.Black);
+
+            using (Graphics g = canvas.CreateGraphics())
+            {
+                foreach (var pixel in pixels)
+                {
+                    g.FillRectangle(new SolidBrush(pixel.Color), pixel.Position.X, pixel.Position.Y, 3, 3);
+                    await Task.Delay(5);
+                }
+            }
+        }
+
+
+
 
         public void DrawPolygon(Point2D center, float radius, int sides, PictureBox picCanvas)
         {
@@ -176,10 +195,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.Aplicacion
 
             await _fillAlgorithm.FillAsync(bitmap, startPoint, targetColor, fillColor, (point, bmp, pixels) =>
             {
-                // Actualiza imagen
                 canvas.Image = (Bitmap)bmp.Clone();
 
-                // Actualiza tabla con el último pixel pintado
                 if (count < pixels.Count)
                 {
                     var p = pixels[count];

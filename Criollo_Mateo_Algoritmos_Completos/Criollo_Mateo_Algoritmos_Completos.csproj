@@ -51,6 +51,7 @@
     <Compile Include="Dominio\Algoritmos\BezierCubica.cs" />
     <Compile Include="Dominio\Algoritmos\BezierLineal.cs" />
     <Compile Include="Dominio\Algoritmos\BresenhamCircle.cs" />
+    <Compile Include="Dominio\Algoritmos\BresenhamElipse.cs" />
     <Compile Include="Dominio\Algoritmos\BresenhamLine.cs" />
     <Compile Include="Dominio\Algoritmos\DDALine.cs" />
     <Compile Include="Dominio\Algoritmos\FloodFill.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Dominio\Algoritmos\Spline.cs" />
     <Compile Include="Dominio\Cuadrado.cs" />
     <Compile Include="Dominio\Interfaces\ICircleAlgorithm.cs" />
+    <Compile Include="Dominio\Interfaces\IEllipseAlgorithm.cs" />
     <Compile Include="Dominio\Interfaces\IFiguraCurva.cs" />
     <Compile Include="Dominio\Interfaces\IFillAlgorithm.cs" />
     <Compile Include="Dominio\Interfaces\ILineAlgorithm.cs" />
@@ -149,7 +151,9 @@
   <ItemGroup>
     <None Include="Resources\iswNuevo1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pexels-scottwebb-3255761.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo_ESPE.png" />
   </ItemGroup>

@@ -118,22 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PaginaFondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PaginaFondo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="iswNuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iswNuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lineas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lineas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PaginaFondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PaginaFondo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fe45d911aebd5855d8f7b5fb05f83680" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fe45d911aebd5855d8f7b5fb05f83680.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo_ESPE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_ESPE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="iswNuevo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iswNuevo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Lineas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Lineas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo_ESPE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_ESPE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pexels-scottwebb-3255761" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pexels-scottwebb-3255761.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

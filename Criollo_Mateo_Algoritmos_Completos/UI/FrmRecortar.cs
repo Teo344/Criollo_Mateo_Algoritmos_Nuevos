@@ -186,6 +186,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             puntosCortados.Clear();
             dibujandoPoligono = true;
             btnCompletar.Enabled = true;
+            btnRecorte.Enabled = false;
             picCanvas.Invalidate();
             contador = 0;
         }
@@ -195,6 +196,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             recortado = true;
             btnLinea.Enabled = false;
             picCanvas.Invalidate();
+            btnRecorte.Enabled = true;  
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

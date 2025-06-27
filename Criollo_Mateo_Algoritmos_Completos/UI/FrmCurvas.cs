@@ -1,4 +1,5 @@
-﻿using Criollo_Mateo_Algoritmos_Completos.Dominio.Algoritmos;
+﻿using Criollo_Mateo_Algoritmos_Completos.Aplicacion;
+using Criollo_Mateo_Algoritmos_Completos.Dominio.Algoritmos;
 using Criollo_Mateo_Algoritmos_Completos.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         private const int radioSeleccion = 6;
         private List<PointF> puntosCurva = new List<PointF>();
         private bool curvaDibujada = false;
+        private DrawingManager drawingManager;
 
 
 
@@ -34,19 +36,55 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         {
             figuraCurvaActual = new BezierLineal();
             lblTitulo.Text = "Curva Bézier Lineal";
+            activarBoton(btnLineal);
         }
 
         private void btnCuadratica_Click(object sender, EventArgs e)
         {
             figuraCurvaActual = new BezierCuadratica();
             lblTitulo.Text = "Curva Bézier Cuadrática";
+            activarBoton(btnCuadratica);
         }
 
         private void btnCubica_Click(object sender, EventArgs e)
         {
             figuraCurvaActual = new BezierCubica();
             lblTitulo.Text = "Curva Bézier Cúbica";
+            activarBoton(btnCubica);
         }
+
+        private void activarBoton(Button botonActivo)
+        {
+            List<Button> botones = new List<Button> { btnLineal,btnCuadratica,btnCubica,btnSpline  };
+
+            foreach (var boton in botones)
+            {
+                if (boton == botonActivo)
+                {
+                    boton.BackColor = Color.RoyalBlue;
+                    boton.ForeColor = Color.White;
+                }
+                else
+                {
+                    boton.BackColor = SystemColors.Control;
+                    boton.ForeColor = SystemColors.ControlText;
+                }
+            }
+        }
+
+        private void reiniciarBoton()
+        {
+            List<Button> botones = new List<Button> { btnLineal, btnCuadratica, btnCubica, btnSpline };
+
+            foreach (var boton in botones)
+            {
+                boton.Enabled = true;
+                boton.BackColor = SystemColors.Control;
+                boton.ForeColor = SystemColors.ControlText;
+
+            }
+        }
+
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
@@ -64,16 +102,22 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
 
             puntosCurva = figuraCurvaActual.CalcularPuntos(puntosControl);
 
-            // Marcar que ya dibujamos
             curvaDibujada = true;
 
             picCanvas.Invalidate();
+            btnDibujar.Enabled = false;
+            btnLineal.Enabled = false;
+            btnCuadratica.Enabled = false;
+            btnCubica.Enabled = false;
+            btnSpline.Enabled = false;
+            lblDescripcion.Text = "Curva dibujada. Puede arrastrar los puntos";
         }
 
         private void btnSpline_Click(object sender, EventArgs e)
         {
             figuraCurvaActual = new Spline();
             lblTitulo.Text = "Curva B-Spline";
+            activarBoton(btnSpline);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -82,6 +126,9 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             puntosCurva.Clear();
             curvaDibujada = false;
             picCanvas.Invalidate();
+            reiniciarBoton();
+            lblTitulo.Text = "Seleccione el tipo de curva";
+            lblDescripcion.Text = "Seleccione la curva y de clic para los puntos";
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -101,6 +148,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             picCanvas.MouseMove += picCanvas_MouseMove;
             picCanvas.MouseUp += picCanvas_MouseUp;
             picCanvas.MouseDown += picCanvas_MouseDown;
+            lblDescripcion.Text = "Seleccione la curva y de clic para los puntos";
 
 
         }
@@ -121,12 +169,9 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
                     return;
                 }
             }
-
-            // Si la curva ya está dibujada, no permitas agregar más puntos
             if (curvaDibujada)
                 return;
 
-            // Si no se hizo clic sobre un punto, agregar uno nuevo
             puntosControl.Add(new PointF(e.X, e.Y));
             picCanvas.Invalidate();
         }
@@ -156,16 +201,15 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         private void picCanvas_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            drawingManager = new DrawingManager(figuraCurvaActual);
+            drawingManager.DibujarCurva(e.Graphics, puntosCurva, new Pen(Color.Blue, 2));
 
-            // Dibuja los puntos de control claramente
             foreach (var p in puntosControl)
             {
                 g.FillEllipse(Brushes.Red, p.X - radioSeleccion, p.Y - radioSeleccion, radioSeleccion * 2, radioSeleccion * 2);
                 g.DrawEllipse(Pens.Black, p.X - radioSeleccion, p.Y - radioSeleccion, radioSeleccion * 2, radioSeleccion * 2);
             }
 
-            // Dibuja la curva si existe
             if (puntosCurva.Count > 1)
             {
                 g.DrawLines(Pens.Blue, puntosCurva.ToArray());

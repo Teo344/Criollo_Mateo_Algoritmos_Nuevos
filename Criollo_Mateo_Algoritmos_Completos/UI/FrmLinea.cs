@@ -19,6 +19,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         DrawingManager drawingManager;
         ILineAlgorithm lineAlgorithm;
         ICircleAlgorithm circleAlgorithm;
+        IEllipseAlgorithm elipseAlgorithm;
         List<Point2D> puntos;
 
         int countPoint;
@@ -39,6 +40,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             countPoint = 0;
             puntos = new List<Point2D>();
             algoritmoSeleccionado = "DDA";
+            lblDescripcion.Text = "De dos clic para graficar las líneas";
         }
 
         private void activarBoton(Button botonActivo)
@@ -66,6 +68,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             lineAlgorithm = new DDALine();
             drawingManager = new DrawingManager(lineAlgorithm);
             lblTitulo.Text = "Algoritmo DDA";
+            lblDescripcion.Text = "De dos clic para graficar las líneas";
             algoritmoSeleccionado = "DDA";
             activarBoton(btnDDA);
         }
@@ -75,6 +78,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             lineAlgorithm = new BresenhamLine();
             drawingManager = new DrawingManager(lineAlgorithm);
             lblTitulo.Text = "Algoritmo Bresenham Line";
+            lblDescripcion.Text = "De dos clic para graficar las líneas";
             algoritmoSeleccionado = "BLine";
             activarBoton(btnLinea);
         }
@@ -84,13 +88,18 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             circleAlgorithm = new BresenhamCircle();
             drawingManager = new DrawingManager(circleAlgorithm);
             lblTitulo.Text = "Algoritmo Bresenham Circle";
+            lblDescripcion.Text = "De dos clic para el centro y radio";
             algoritmoSeleccionado = "BCircle";
             activarBoton(btnCirculo);
         }
 
         private void btnElipse_Click(object sender, EventArgs e)
         {
-            // drawingManager = new DrawingManager();
+            elipseAlgorithm = new BresenhamElipse();
+            drawingManager = new DrawingManager(elipseAlgorithm);
+            lblTitulo.Text = "Algoritmo Bresenham Elipse";
+            lblDescripcion.Text = "De dos clic para el centro y radio";
+            algoritmoSeleccionado = "BElipse";
             activarBoton(btnElipse);
         }
 
@@ -112,17 +121,6 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
                 countPoint++;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -165,6 +163,12 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             {
                 await drawingManager.DrawPixelsAsyncCircle(puntos[0], puntos[1], picCanvas);
             }
+
+            if (algoritmoSeleccionado == "BElipse")
+            {
+                await drawingManager.DrawPixelsAsyncEllipse(puntos[0], puntos[1], picCanvas);
+            }
+
 
             btnLimpiar.Enabled = true;
         }
