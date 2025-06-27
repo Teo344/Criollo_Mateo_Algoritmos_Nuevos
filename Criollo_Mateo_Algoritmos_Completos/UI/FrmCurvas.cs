@@ -36,6 +36,9 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         {
             figuraCurvaActual = new BezierLineal();
             lblTitulo.Text = "Curva Bézier Lineal";
+            picCanvas.Enabled = true;
+            btnDibujar.Enabled = true;
+
             activarBoton(btnLineal);
         }
 
@@ -43,6 +46,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         {
             figuraCurvaActual = new BezierCuadratica();
             lblTitulo.Text = "Curva Bézier Cuadrática";
+            picCanvas.Enabled = true;
+            btnDibujar.Enabled = true;
             activarBoton(btnCuadratica);
         }
 
@@ -50,6 +55,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         {
             figuraCurvaActual = new BezierCubica();
             lblTitulo.Text = "Curva Bézier Cúbica";
+            picCanvas.Enabled = true;
+            btnDibujar.Enabled = true;
             activarBoton(btnCubica);
         }
 
@@ -117,6 +124,8 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         {
             figuraCurvaActual = new Spline();
             lblTitulo.Text = "Curva B-Spline";
+            picCanvas.Enabled = true;
+            btnDibujar.Enabled = true;
             activarBoton(btnSpline);
         }
 
@@ -127,6 +136,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             curvaDibujada = false;
             picCanvas.Invalidate();
             reiniciarBoton();
+            picCanvas.Enabled = false;
             lblTitulo.Text = "Seleccione el tipo de curva";
             lblDescripcion.Text = "Seleccione la curva y de clic para los puntos";
         }
@@ -149,7 +159,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
             picCanvas.MouseUp += picCanvas_MouseUp;
             picCanvas.MouseDown += picCanvas_MouseDown;
             lblDescripcion.Text = "Seleccione la curva y de clic para los puntos";
-
+            picCanvas.Enabled = false;
 
         }
 
