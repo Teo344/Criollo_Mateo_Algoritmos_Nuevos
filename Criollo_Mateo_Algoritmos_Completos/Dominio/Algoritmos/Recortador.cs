@@ -86,36 +86,48 @@ namespace Criollo_Mateo_Algoritmos_Completos.Dominio.Algoritmos
 
             output = RecortarContraBorde(output, p => p.X >= xmin, (a, b) =>
             {
-                double x = xmin;
-                double y = a.Y + (b.Y - a.Y) * (xmin - a.X) / (b.X - a.X);
-                return new Point2D((int)x, (int)y);
+                if (a.X == b.X) return null;
+                double t = (xmin - a.X) / (b.X - a.X);
+                if (t < 0 || t > 1) return null;
+                double y = a.Y + t * (b.Y - a.Y);
+                return new Point2D((int)xmin, (int)y);
             });
 
             output = RecortarContraBorde(output, p => p.X <= xmax, (a, b) =>
             {
-                double x = xmax;
-                double y = a.Y + (b.Y - a.Y) * (xmax - a.X) / (b.X - a.X);
-                return new Point2D((int)x, (int)y);
+                if (a.X == b.X) return null;
+                double t = (xmax - a.X) / (b.X - a.X);
+                if (t < 0 || t > 1) return null;
+                double y = a.Y + t * (b.Y - a.Y);
+                return new Point2D((int)xmax, (int)y);
             });
 
             output = RecortarContraBorde(output, p => p.Y >= ymin, (a, b) =>
             {
-                double y = ymin;
-                double x = a.X + (b.X - a.X) * (ymin - a.Y) / (b.Y - a.Y);
-                return new Point2D((int)x, (int)y);
+                if (a.Y == b.Y) return null;
+                double t = (ymin - a.Y) / (b.Y - a.Y);
+                if (t < 0 || t > 1) return null;
+                double x = a.X + t * (b.X - a.X);
+                return new Point2D((int)x, (int)ymin);
             });
 
             output = RecortarContraBorde(output, p => p.Y <= ymax, (a, b) =>
             {
-                double y = ymax;
-                double x = a.X + (b.X - a.X) * (ymax - a.Y) / (b.Y - a.Y);
-                return new Point2D((int)x, (int)y);
+                if (a.Y == b.Y) return null;
+                double t = (ymax - a.Y) / (b.Y - a.Y);
+                if (t < 0 || t > 1) return null;
+                double x = a.X + t * (b.X - a.X);
+                return new Point2D((int)x, (int)ymax);
             });
 
             return output;
         }
 
-        private List<Point2D> RecortarContraBorde(List<Point2D> input, Func<Point2D, bool> dentro, Func<Point2D, Point2D, Point2D> interseccion)
+
+        private List<Point2D> RecortarContraBorde(
+            List<Point2D> input,
+            Func<Point2D, bool> estaDentro,
+            Func<Point2D, Point2D, Point2D?> calcularInterseccion)
         {
             List<Point2D> output = new List<Point2D>();
             if (input.Count == 0) return output;
@@ -123,24 +135,29 @@ namespace Criollo_Mateo_Algoritmos_Completos.Dominio.Algoritmos
             Point2D prev = input[input.Count - 1];
             foreach (Point2D actual in input)
             {
-                bool inPrev = dentro(prev);
-                bool inActual = dentro(actual);
+                bool inPrev = estaDentro(prev);
+                bool inActual = estaDentro(actual);
 
                 if (inActual)
                 {
                     if (!inPrev)
-                        output.Add(interseccion(prev, actual));
+                    {
+                        var inter = calcularInterseccion(prev, actual);
+                        if (inter.HasValue) output.Add(inter.Value);
+                    }
                     output.Add(actual);
                 }
                 else if (inPrev)
                 {
-                    output.Add(interseccion(prev, actual));
+                    var inter = calcularInterseccion(prev, actual);
+                    if (inter.HasValue) output.Add(inter.Value);
                 }
 
                 prev = actual;
             }
             return output;
         }
+
     }
 
 

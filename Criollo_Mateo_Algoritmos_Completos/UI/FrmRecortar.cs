@@ -69,6 +69,9 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
         private void picCanvas_Paint(object sender, PaintEventArgs e)
         {
             cuadrado.PlotShape(e.Graphics, picCanvas);
+            Graphics g = e.Graphics;
+            DibujarCuadricula(g, picCanvas.Width, picCanvas.Height, 40);
+
 
 
             if (dibujandoPoligono == true)
@@ -209,5 +212,20 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
 
             this.Close();
         }
+
+
+        private void DibujarCuadricula(Graphics g, int ancho, int alto, int paso = 40)
+        {
+            using (Pen lapiz = new Pen(Color.LightGray, 1))
+            {
+                for (int x = 0; x < ancho; x += paso)
+                    g.DrawLine(lapiz, x, 0, x, alto); // Líneas verticales
+
+                for (int y = 0; y < alto; y += paso)
+                    g.DrawLine(lapiz, 0, y, ancho, y); // Líneas horizontales
+            }
+        }
+
+
     }
 }

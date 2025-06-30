@@ -38,7 +38,7 @@ namespace Criollo_Mateo_Algoritmos_Completos.Entidades
 
             PointF[] puntosParaDibujar = puntos.Select(p => p.ToPointF()).ToArray();
 
-            using (Pen pen = new Pen(Color.Blue, 3))
+            using (Pen pen = new Pen(Color.Green, 3))
             {
                 g.DrawPolygon(pen, puntosParaDibujar);
             }
