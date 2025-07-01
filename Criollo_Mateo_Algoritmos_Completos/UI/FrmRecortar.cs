@@ -86,6 +86,12 @@ namespace Criollo_Mateo_Algoritmos_Completos.UI
                 drawingManager.dibujarRecortado(e.Graphics, puntosCortados);
 
             }
+
+            foreach (var punto in puntosCompletos)
+            {
+                e.Graphics.FillEllipse(Brushes.Red, punto.X - 3, punto.Y - 3, 6, 6);
+            }
+
         }
 
         private void picCanvas_MouseClick(object sender, MouseEventArgs e)
